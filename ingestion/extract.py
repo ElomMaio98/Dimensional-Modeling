@@ -27,11 +27,11 @@ def get_states(token):
 
 def get_data(token):
     resultado = list()
-    get_states(token)
+    estados = get_states(token)
     for estado in estados:
-        r1 = requests.get(url_ocorrencias, headers={"Authorization": f"Bearer {bearer_token}"}, params = {'idState':estado})
+        r1 = requests.get(url_ocorrencias, headers={"Authorization": f"Bearer {token}"}, params = {'idState':estado})
         resultado.extend(r1.json()['data'])
-    return r1.json()
+    return resultado
 
 
 
