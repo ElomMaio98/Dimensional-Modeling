@@ -1,0 +1,7 @@
+version: 2
+
+sources:
+  - name: fogo_cruzado
+    schema: public
+    tables:
+      - name: raw_ocorrencias
