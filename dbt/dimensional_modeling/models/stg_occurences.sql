@@ -1,5 +1,5 @@
 select 
-     id as occurrenceId
+     id as occurrence_id
     ,payload ->>'address' as endereco
     ,payload -> 'region' ->>'name' as regiao
     ,payload -> 'region' ->>'id' as regiao_id
