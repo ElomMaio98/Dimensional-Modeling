@@ -1,3 +1,5 @@
 env/
 .env
 # autenticate.json
+logs/dbt.log
+dbt/logs/dbt.log
