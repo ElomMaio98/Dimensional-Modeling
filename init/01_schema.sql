@@ -3,4 +3,11 @@ CREATE TABLE raw_ocorrencias(
     payload jsonb NOT NULL, -- utilizar jsonb porque ele é um formato mais adequado para extrair campos
     ingested_at TIMESTAMP DEFAULT NOW()
 
+);
+
+CREATE TABLE raw_estados(
+    id UUID PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL, -- utilizar jsonb porque ele é um formato mais adequado para extrair campos
+    ingested_at TIMESTAMP DEFAULT NOW()
+
 )

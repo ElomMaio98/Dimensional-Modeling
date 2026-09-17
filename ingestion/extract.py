@@ -25,11 +25,11 @@ def auth(FOGO_EMAIL,FOGO_SENHA):
     return bearer_token
 
 def get_states(token):
-    estados = list()
-    r = requests.get(url_estados, headers={"Authorization":f"Bearer {token}"})
-    for estado in r.json()['data']:
-        estados.append(estado['id'])
-    return estados
+  r = requests.get(
+      url_estados, headers={"Authorization": f"Bearer {token}"}
+  )
+  r.raise_for_status()
+  return [(estado["id"], estado["name"]) for estado in r.json()["data"]]
 
 def get_data(token):
     resultado = list()
@@ -37,7 +37,7 @@ def get_data(token):
     for estado in estados:
         pagina = 1
         while pagina<10:
-            r1 = requests.get(url_ocorrencias, headers={"Authorization": f"Bearer {token}"}, params = {'idState':estado, 'page':pagina})
+            r1 = requests.get(url_ocorrencias, headers={"Authorization": f"Bearer {token}"}, params = {'idState':estado[0], 'page':pagina})
             print(r1.status_code)
             resultado.extend(r1.json()['data'])
             pagina += 1
@@ -50,6 +50,10 @@ def get_data(token):
 def insert_data(resultado):
     conn = psycopg2.connect(f"dbname={db_name} user={db_user} host={db_host} port={port} password={db_password}")
     cur = conn.cursor()
+    estados = get_states(token)
+    for estado in estados:
+        cur.execute("INSERT INTO raw_estados (id,nome) VALUES (%s,%s) ON CONFLICT (id) DO UPDATE SET nome = EXCLUDED.nome",estado)
+    conn.commit()    
     for ocorrencia in resultado:
         cur.execute("INSERT INTO raw_ocorrencias (id,payload) VALUES (%s,%s) ON CONFLICT DO NOTHING",(ocorrencia["id"], json.dumps(ocorrencia)))
     conn.commit() # fora do loop para garantir consistência, se não rodar todos os insert, não commita
