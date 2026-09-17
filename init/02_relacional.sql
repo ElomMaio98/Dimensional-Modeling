@@ -66,7 +66,7 @@ CREATE TABLE core.victims(
     id SERIAL PRIMARY KEY,
     idade INT,
     -- motivo_id UUID REFERENCES core.motivo(id)
-    occurrence_id REFERENCES core.ocorrencia(id)
+    occurrence_id UUID REFERENCES core.ocorrencia(id)
     , genero_id UUID REFERENCES core.genero(id)
     , faixa_etaria_id UUID REFERENCES core.faixa_etaria(id)
     , situacao_id INT REFERENCES core.situacao(id)

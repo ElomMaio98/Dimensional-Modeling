@@ -1,0 +1,217 @@
+[0m20:18:21.166564 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7817bb12ac90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7817b7e14890>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7817b7d0d430>]}
+
+
+============================== 20:18:21.169004 | 3296dc59-344c-4d8c-a3e6-8ac9d92753e0 ==============================
+[0m20:18:21.169004 [info ] [MainThread]: Running with dbt=1.12.4
+[0m20:18:21.169457 [debug] [MainThread]: running dbt with arguments {'profiles_dir': '/home/elom/.dbt', 'use_colors': 'True', 'log_path': 'logs', 'write_json': 'True', 'invocation_command': 'dbt init', 'warn_error': 'None', 'no_print': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'log_format': 'default', 'debug': 'False', 'target_path': 'None', 'introspect': 'True', 'quiet': 'False', 'partial_parse': 'True', 'static_parser': 'True', 'version_check': 'True', 'fail_fast': 'False', 'log_cache_events': 'False', 'hints_enabled': 'True', 'cache_selected_only': 'False', 'send_anonymous_usage_stats': 'True', 'empty': 'None', 'maximum_seed_size_mib': '1', 'printer_width': '80', 'indirect_selection': 'eager', 'use_experimental_parser': 'False'}
+[0m20:18:45.391762 [debug] [MainThread]: Starter project path: /home/elom/Área de trabalho/Proejtos pessoais/Dimensional-Modeling/env/lib/python3.12/site-packages/dbt/include/starter_project
+[0m20:18:45.396296 [info ] [MainThread]: Setting up your profile.
+[0m20:23:04.525116 [info ] [MainThread]: Profile dimensional_modeling written to /home/elom/.dbt/profiles.yml using target's profile_template.yml and your supplied values.
+[0m20:23:04.526403 [info ] [MainThread]: Running dbt debug to validate the project...
+[0m20:23:04.526998 [info ] [MainThread]: dbt version: 1.12.4
+[0m20:23:04.527405 [info ] [MainThread]: python version: 3.12.3
+[0m20:23:04.527697 [info ] [MainThread]: python path: /home/elom/Área de trabalho/Proejtos pessoais/Dimensional-Modeling/env/bin/python3
+[0m20:23:04.527942 [info ] [MainThread]: os info: Linux-6.14.0-29-generic-x86_64-with-glibc2.39
+[0m20:23:04.564934 [info ] [MainThread]: Using profiles dir at /home/elom/.dbt
+[0m20:23:04.565686 [info ] [MainThread]: Using profiles.yml file at /home/elom/.dbt/profiles.yml
+[0m20:23:04.566150 [info ] [MainThread]: Using dbt_project.yml file at /home/elom/Área de trabalho/Proejtos pessoais/Dimensional-Modeling/dbt/dimensional_modeling/dbt_project.yml
+[0m20:23:04.566897 [info ] [MainThread]: adapter type: postgres
+[0m20:23:04.567384 [info ] [MainThread]: adapter version: 1.11.0
+[0m20:23:04.667674 [info ] [MainThread]: Configuration:
+[0m20:23:04.668083 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m20:23:04.668376 [info ] [MainThread]:   dbt_project.yml file [[32mOK found and valid[0m]
+[0m20:23:04.668644 [info ] [MainThread]: Required dependencies:
+[0m20:23:04.668925 [debug] [MainThread]: Executing "git --help"
+[0m20:23:04.670362 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]\n           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]\n           [--config-env=<name>=<envvar>] <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone     Clone a repository into a new directory\n   init      Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add       Add file contents to the index\n   mv        Move or rename a file, a directory, or a symlink\n   restore   Restore working tree files\n   rm        Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect    Use binary search to find the commit that introduced a bug\n   diff      Show changes between commits, commit and working tree, etc\n   grep      Print lines matching a pattern\n   log       Show commit logs\n   show      Show various types of objects\n   status    Show the working tree status\n\ngrow, mark and tweak your common history\n   branch    List, create, or delete branches\n   commit    Record changes to the repository\n   merge     Join two or more development histories together\n   rebase    Reapply commits on top of another base tip\n   reset     Reset current HEAD to the specified state\n   switch    Switch branches\n   tag       Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch     Download objects and refs from another repository\n   pull      Fetch from and integrate with another repository or a local branch\n   push      Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m20:23:04.670745 [debug] [MainThread]: STDERR: "b''"
+[0m20:23:04.670990 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m20:23:04.671241 [info ] [MainThread]: Connection:
+[0m20:23:04.671510 [info ] [MainThread]:   host: localhost
+[0m20:23:04.671763 [info ] [MainThread]:   port: 5432
+[0m20:23:04.672020 [info ] [MainThread]:   user: elommaio
+[0m20:23:04.672268 [info ] [MainThread]:   database: elommaio
+[0m20:23:04.672506 [info ] [MainThread]:   schema: analytics
+[0m20:23:04.672753 [info ] [MainThread]:   connect_timeout: 10
+[0m20:23:04.672986 [info ] [MainThread]:   role: None
+[0m20:23:04.673223 [info ] [MainThread]:   search_path: None
+[0m20:23:04.673458 [info ] [MainThread]:   keepalives_idle: 0
+[0m20:23:04.673717 [info ] [MainThread]:   sslmode: None
+[0m20:23:04.673961 [info ] [MainThread]:   sslcert: None
+[0m20:23:04.674197 [info ] [MainThread]:   sslkey: None
+[0m20:23:04.674432 [info ] [MainThread]:   sslrootcert: None
+[0m20:23:04.674677 [info ] [MainThread]:   application_name: dbt
+[0m20:23:04.674913 [info ] [MainThread]:   autocommit: False
+[0m20:23:04.675168 [info ] [MainThread]:   retries: 1
+[0m20:23:04.675601 [info ] [MainThread]: Registered adapter: postgres=1.11.0
+[0m20:23:04.737892 [debug] [MainThread]: Acquiring new postgres connection 'debug'
+[0m20:23:04.752042 [debug] [MainThread]: Using postgres connection "debug"
+[0m20:23:04.752376 [debug] [MainThread]: On debug: select 1 as id
+[0m20:23:04.752650 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m20:23:04.760202 [debug] [MainThread]: SQL status: SELECT 1 in 0.007 seconds
+[0m20:23:04.761025 [debug] [MainThread]: On debug: Close
+[0m20:23:04.761351 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m20:23:04.761644 [info ] [MainThread]: [32mAll checks passed![0m
+[0m20:23:04.761928 [info ] [MainThread]: Your new dbt project "dimensional_modeling" was created!
+Initialized new project in /home/elom/Área de trabalho/Proejtos pessoais/Dimensional-Modeling/dbt/dimensional_modeling/dimensional_modeling
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m20:23:04.762635 [debug] [MainThread]: Resource report: {"command_name": "init", "command_success": true, "command_wall_clock_time": 283.65573, "process_in_blocks": "1232", "process_kernel_time": 0.115439, "process_mem_max_rss": "121968", "process_out_blocks": "88", "process_user_time": 1.310636}
+[0m20:23:04.763053 [debug] [MainThread]: Command `dbt init` succeeded at 20:23:04.762976 after 283.66 seconds
+[0m20:23:04.763329 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m20:23:04.763625 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7817b7b76d20>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7817b6fa8230>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7817b6faa4b0>]}
+[0m20:23:04.763952 [debug] [MainThread]: Flushing usage events
+[0m20:23:05.623447 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m20:47:54.758090 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x74de0ab49910>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x74de0b24ab70>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x74de0b24ae40>]}
+
+
+============================== 20:47:54.760431 | 5b2f7a36-312c-4b21-9c08-bcf0d556c9ce ==============================
+[0m20:47:54.760431 [info ] [MainThread]: Running with dbt=1.12.4
+[0m20:47:54.760977 [debug] [MainThread]: running dbt with arguments {'debug': 'False', 'cache_selected_only': 'False', 'empty': 'None', 'write_json': 'True', 'fail_fast': 'False', 'target_path': 'None', 'version_check': 'True', 'log_cache_events': 'False', 'use_colors': 'True', 'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'warn_error': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'log_path': 'logs', 'introspect': 'True', 'profiles_dir': '/home/elom/.dbt', 'printer_width': '80', 'no_print': 'None', 'static_parser': 'True', 'invocation_command': 'dbt debug', 'log_format': 'default', 'hints_enabled': 'True', 'maximum_seed_size_mib': '1', 'quiet': 'False', 'indirect_selection': 'eager', 'use_experimental_parser': 'False'}
+[0m20:47:54.770375 [info ] [MainThread]: dbt version: 1.12.4
+[0m20:47:54.770941 [info ] [MainThread]: python version: 3.12.3
+[0m20:47:54.771328 [info ] [MainThread]: python path: /home/elom/Área de trabalho/Proejtos pessoais/Dimensional-Modeling/env/bin/python3
+[0m20:47:54.771614 [info ] [MainThread]: os info: Linux-6.14.0-29-generic-x86_64-with-glibc2.39
+[0m20:47:54.775962 [info ] [MainThread]: Error importing adapter: No module named 'dbt.adapters.bigquery'
+[0m20:47:54.815516 [info ] [MainThread]: Using profiles dir at /home/elom/.dbt
+[0m20:47:54.816175 [info ] [MainThread]: Using profiles.yml file at /home/elom/.dbt/profiles.yml
+[0m20:47:54.816558 [info ] [MainThread]: Using dbt_project.yml file at /home/elom/Área de trabalho/Proejtos pessoais/Dimensional-Modeling/dbt/dbt_project.yml
+[0m20:47:54.816877 [info ] [MainThread]: Configuration:
+[0m20:47:54.817129 [info ] [MainThread]:   profiles.yml file [[31mERROR invalid[0m]
+[0m20:47:54.817362 [info ] [MainThread]:   dbt_project.yml file [[31mERROR not found[0m]
+[0m20:47:54.817594 [info ] [MainThread]: Required dependencies:
+[0m20:47:54.817896 [debug] [MainThread]: Executing "git --help"
+[0m20:47:54.819266 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]\n           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]\n           [--config-env=<name>=<envvar>] <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone     Clone a repository into a new directory\n   init      Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add       Add file contents to the index\n   mv        Move or rename a file, a directory, or a symlink\n   restore   Restore working tree files\n   rm        Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect    Use binary search to find the commit that introduced a bug\n   diff      Show changes between commits, commit and working tree, etc\n   grep      Print lines matching a pattern\n   log       Show commit logs\n   show      Show various types of objects\n   status    Show the working tree status\n\ngrow, mark and tweak your common history\n   branch    List, create, or delete branches\n   commit    Record changes to the repository\n   merge     Join two or more development histories together\n   rebase    Reapply commits on top of another base tip\n   reset     Reset current HEAD to the specified state\n   switch    Switch branches\n   tag       Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch     Download objects and refs from another repository\n   pull      Fetch from and integrate with another repository or a local branch\n   push      Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m20:47:54.819621 [debug] [MainThread]: STDERR: "b''"
+[0m20:47:54.819867 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m20:47:54.820113 [info ] [MainThread]: Connection test skipped since no profile was found
+[0m20:47:54.820387 [info ] [MainThread]: [31m2 checks failed:[0m
+[0m20:47:54.820627 [info ] [MainThread]: Could not load dbt_project.yml
+Profile loading failed for the following reason:
+Runtime Error
+  Credentials in profile "crypto_dbt", target "dev" invalid: Runtime Error
+    Could not find adapter type bigquery!
+
+
+[0m20:47:54.820951 [info ] [MainThread]: Project loading failed for the following reason:
+ project path </home/elom/Área de trabalho/Proejtos pessoais/Dimensional-Modeling/dbt/dbt_project.yml> not found
+
+[0m20:47:54.821911 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_success": false, "command_wall_clock_time": 0.121849604, "process_in_blocks": "0", "process_kernel_time": 0.090902, "process_mem_max_rss": "111540", "process_out_blocks": "16", "process_user_time": 1.121793}
+[0m20:47:54.822310 [debug] [MainThread]: Command `dbt debug` failed at 20:47:54.822232 after 0.12 seconds
+[0m20:47:54.822639 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x74de0adc3da0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x74de0d073a40>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x74de0a1f1760>]}
+[0m20:47:54.822967 [debug] [MainThread]: Flushing usage events
+[0m20:47:55.871114 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m20:57:27.988372 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x70815b5b5370>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x70815b5b7470>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x70815b5b53a0>]}
+
+
+============================== 20:57:27.990613 | 24f85c07-a25c-4eb9-9e82-f3a5259a69fb ==============================
+[0m20:57:27.990613 [info ] [MainThread]: Running with dbt=1.12.4
+[0m20:57:27.991101 [debug] [MainThread]: running dbt with arguments {'invocation_command': 'dbt debug', 'send_anonymous_usage_stats': 'True', 'log_format': 'default', 'fail_fast': 'False', 'warn_error': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'introspect': 'True', 'use_colors': 'True', 'static_parser': 'True', 'profiles_dir': '/home/elom/.dbt', 'version_check': 'True', 'write_json': 'True', 'empty': 'None', 'maximum_seed_size_mib': '1', 'quiet': 'False', 'target_path': 'None', 'log_path': 'logs', 'debug': 'False', 'printer_width': '80', 'cache_selected_only': 'False', 'use_experimental_parser': 'False', 'no_print': 'None', 'partial_parse': 'True', 'log_cache_events': 'False', 'indirect_selection': 'eager', 'hints_enabled': 'True'}
+[0m20:57:27.999042 [info ] [MainThread]: dbt version: 1.12.4
+[0m20:57:27.999426 [info ] [MainThread]: python version: 3.12.3
+[0m20:57:27.999708 [info ] [MainThread]: python path: /home/elom/Área de trabalho/Proejtos pessoais/Dimensional-Modeling/env/bin/python3
+[0m20:57:27.999957 [info ] [MainThread]: os info: Linux-6.14.0-29-generic-x86_64-with-glibc2.39
+[0m20:57:28.004317 [info ] [MainThread]: Error importing adapter: No module named 'dbt.adapters.bigquery'
+[0m20:57:28.045898 [info ] [MainThread]: Using profiles dir at /home/elom/.dbt
+[0m20:57:28.046657 [info ] [MainThread]: Using profiles.yml file at /home/elom/.dbt/profiles.yml
+[0m20:57:28.047065 [info ] [MainThread]: Using dbt_project.yml file at /home/elom/Área de trabalho/Proejtos pessoais/Dimensional-Modeling/dbt/dbt_project.yml
+[0m20:57:28.047361 [info ] [MainThread]: Configuration:
+[0m20:57:28.047612 [info ] [MainThread]:   profiles.yml file [[31mERROR invalid[0m]
+[0m20:57:28.047858 [info ] [MainThread]:   dbt_project.yml file [[31mERROR not found[0m]
+[0m20:57:28.048086 [info ] [MainThread]: Required dependencies:
+[0m20:57:28.048342 [debug] [MainThread]: Executing "git --help"
+[0m20:57:28.049963 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]\n           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]\n           [--config-env=<name>=<envvar>] <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone     Clone a repository into a new directory\n   init      Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add       Add file contents to the index\n   mv        Move or rename a file, a directory, or a symlink\n   restore   Restore working tree files\n   rm        Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect    Use binary search to find the commit that introduced a bug\n   diff      Show changes between commits, commit and working tree, etc\n   grep      Print lines matching a pattern\n   log       Show commit logs\n   show      Show various types of objects\n   status    Show the working tree status\n\ngrow, mark and tweak your common history\n   branch    List, create, or delete branches\n   commit    Record changes to the repository\n   merge     Join two or more development histories together\n   rebase    Reapply commits on top of another base tip\n   reset     Reset current HEAD to the specified state\n   switch    Switch branches\n   tag       Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch     Download objects and refs from another repository\n   pull      Fetch from and integrate with another repository or a local branch\n   push      Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m20:57:28.050361 [debug] [MainThread]: STDERR: "b''"
+[0m20:57:28.050620 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m20:57:28.050881 [info ] [MainThread]: Connection test skipped since no profile was found
+[0m20:57:28.051184 [info ] [MainThread]: [31m2 checks failed:[0m
+[0m20:57:28.051431 [info ] [MainThread]: Could not load dbt_project.yml
+Profile loading failed for the following reason:
+Runtime Error
+  Credentials in profile "crypto_dbt", target "dev" invalid: Runtime Error
+    Could not find adapter type bigquery!
+
+
+[0m20:57:28.051698 [info ] [MainThread]: Project loading failed for the following reason:
+ project path </home/elom/Área de trabalho/Proejtos pessoais/Dimensional-Modeling/dbt/dbt_project.yml> not found
+
+[0m20:57:28.052405 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_success": false, "command_wall_clock_time": 0.12217667, "process_in_blocks": "0", "process_kernel_time": 0.079813, "process_mem_max_rss": "111264", "process_out_blocks": "24", "process_user_time": 1.131361}
+[0m20:57:28.052859 [debug] [MainThread]: Command `dbt debug` failed at 20:57:28.052778 after 0.12 seconds
+[0m20:57:28.053177 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x70815b91bda0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x70815ac04ef0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x70815cce1e80>]}
+[0m20:57:28.053512 [debug] [MainThread]: Flushing usage events
+[0m20:57:28.865300 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m21:00:09.932097 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x795378b41fa0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x795376ed8170>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7953775df7d0>]}
+
+
+============================== 21:00:09.934312 | 79ba5554-8232-47f3-9cb2-5b08d88cbb51 ==============================
+[0m21:00:09.934312 [info ] [MainThread]: Running with dbt=1.12.4
+[0m21:00:09.934797 [debug] [MainThread]: running dbt with arguments {'cache_selected_only': 'False', 'use_colors': 'True', 'version_check': 'True', 'log_path': 'logs', 'hints_enabled': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'log_cache_events': 'False', 'write_json': 'True', 'warn_error': 'None', 'fail_fast': 'False', 'no_print': 'None', 'quiet': 'False', 'debug': 'False', 'introspect': 'True', 'profiles_dir': '/home/elom/.dbt', 'static_parser': 'True', 'partial_parse': 'True', 'use_experimental_parser': 'False', 'log_format': 'default', 'indirect_selection': 'eager', 'invocation_command': 'dbt debug', 'empty': 'None', 'maximum_seed_size_mib': '1', 'printer_width': '80', 'send_anonymous_usage_stats': 'True'}
+[0m21:00:09.942569 [info ] [MainThread]: dbt version: 1.12.4
+[0m21:00:09.942948 [info ] [MainThread]: python version: 3.12.3
+[0m21:00:09.943242 [info ] [MainThread]: python path: /home/elom/Área de trabalho/Proejtos pessoais/Dimensional-Modeling/env/bin/python3
+[0m21:00:09.943500 [info ] [MainThread]: os info: Linux-6.14.0-29-generic-x86_64-with-glibc2.39
+[0m21:00:10.005719 [info ] [MainThread]: Using profiles dir at /home/elom/.dbt
+[0m21:00:10.006129 [info ] [MainThread]: Using profiles.yml file at /home/elom/.dbt/profiles.yml
+[0m21:00:10.006427 [info ] [MainThread]: Using dbt_project.yml file at /home/elom/Área de trabalho/Proejtos pessoais/Dimensional-Modeling/dbt/dbt_project.yml
+[0m21:00:10.006883 [info ] [MainThread]: adapter type: postgres
+[0m21:00:10.007209 [info ] [MainThread]: adapter version: 1.11.0
+[0m21:00:10.007483 [info ] [MainThread]: Configuration:
+[0m21:00:10.007738 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m21:00:10.007976 [info ] [MainThread]:   dbt_project.yml file [[31mERROR not found[0m]
+[0m21:00:10.008209 [info ] [MainThread]: Required dependencies:
+[0m21:00:10.008464 [debug] [MainThread]: Executing "git --help"
+[0m21:00:10.009828 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]\n           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]\n           [--config-env=<name>=<envvar>] <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone     Clone a repository into a new directory\n   init      Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add       Add file contents to the index\n   mv        Move or rename a file, a directory, or a symlink\n   restore   Restore working tree files\n   rm        Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect    Use binary search to find the commit that introduced a bug\n   diff      Show changes between commits, commit and working tree, etc\n   grep      Print lines matching a pattern\n   log       Show commit logs\n   show      Show various types of objects\n   status    Show the working tree status\n\ngrow, mark and tweak your common history\n   branch    List, create, or delete branches\n   commit    Record changes to the repository\n   merge     Join two or more development histories together\n   rebase    Reapply commits on top of another base tip\n   reset     Reset current HEAD to the specified state\n   switch    Switch branches\n   tag       Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch     Download objects and refs from another repository\n   pull      Fetch from and integrate with another repository or a local branch\n   push      Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m21:00:10.010148 [debug] [MainThread]: STDERR: "b''"
+[0m21:00:10.010390 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m21:00:10.010651 [info ] [MainThread]: Connection:
+[0m21:00:10.010945 [info ] [MainThread]:   host: localhost
+[0m21:00:10.011419 [info ] [MainThread]:   port: 5432
+[0m21:00:10.011783 [info ] [MainThread]:   user: elommaio
+[0m21:00:10.012118 [info ] [MainThread]:   database: elommaio
+[0m21:00:10.012412 [info ] [MainThread]:   schema: analytics
+[0m21:00:10.012701 [info ] [MainThread]:   connect_timeout: 10
+[0m21:00:10.012979 [info ] [MainThread]:   role: None
+[0m21:00:10.013239 [info ] [MainThread]:   search_path: None
+[0m21:00:10.013493 [info ] [MainThread]:   keepalives_idle: 0
+[0m21:00:10.013768 [info ] [MainThread]:   sslmode: None
+[0m21:00:10.014022 [info ] [MainThread]:   sslcert: None
+[0m21:00:10.014284 [info ] [MainThread]:   sslkey: None
+[0m21:00:10.014541 [info ] [MainThread]:   sslrootcert: None
+[0m21:00:10.014823 [info ] [MainThread]:   application_name: dbt
+[0m21:00:10.015067 [info ] [MainThread]:   autocommit: False
+[0m21:00:10.015302 [info ] [MainThread]:   retries: 1
+[0m21:00:10.015662 [info ] [MainThread]: Registered adapter: postgres=1.11.0
+[0m21:00:10.072677 [debug] [MainThread]: Acquiring new postgres connection 'debug'
+[0m21:00:10.087283 [debug] [MainThread]: Using postgres connection "debug"
+[0m21:00:10.087649 [debug] [MainThread]: On debug: select 1 as id
+[0m21:00:10.087919 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m21:00:10.095617 [debug] [MainThread]: SQL status: SELECT 1 in 0.008 seconds
+[0m21:00:10.096445 [debug] [MainThread]: On debug: Close
+[0m21:00:10.096778 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m21:00:10.097073 [info ] [MainThread]: [31m1 check failed:[0m
+[0m21:00:10.097329 [info ] [MainThread]: Project loading failed for the following reason:
+ project path </home/elom/Área de trabalho/Proejtos pessoais/Dimensional-Modeling/dbt/dbt_project.yml> not found
+
+[0m21:00:10.098035 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_success": false, "command_wall_clock_time": 0.2239158, "process_in_blocks": "0", "process_kernel_time": 0.109751, "process_mem_max_rss": "119912", "process_out_blocks": "16", "process_user_time": 1.211259}
+[0m21:00:10.098476 [debug] [MainThread]: Command `dbt debug` failed at 21:00:10.098393 after 0.22 seconds
+[0m21:00:10.098771 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m21:00:10.099056 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x79537b1ab890>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x795376251010>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x795376526840>]}
+[0m21:00:10.099388 [debug] [MainThread]: Flushing usage events
+[0m21:00:11.070981 [debug] [MainThread]: An error was encountered while trying to flush usage events

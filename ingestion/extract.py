@@ -3,12 +3,17 @@ import psycopg2
 from dotenv import load_dotenv
 import os
 import time
-
+import json
 load_dotenv()
 
 #bloco 1: conexão com a API:
 FOGO_EMAIL = os.getenv("EMAIL")
 FOGO_SENHA = os.getenv("SENHA")
+db_name = os.getenv("POSTGRES_DB")
+db_user = os.getenv("POSTGRES_USER")
+db_password = os.getenv("POSTGRES_PASSWORD")
+db_host = os.getenv("HOST")
+port = os.getenv("PORT")
 url_login = 'https://api-service.fogocruzado.org.br/api/v2/auth/login'
 url_ocorrencias = 'https://api-service.fogocruzado.org.br/api/v2/occurrences'
 url_estados = 'https://api-service.fogocruzado.org.br/api/v2/states'
@@ -42,12 +47,15 @@ def get_data(token):
                 time.sleep(0.5)
     return resultado
 
+def insert_data(resultado):
+    conn = psycopg2.connect(f"dbname={db_name} user={db_user} host={db_host} port={port} password={db_password}")
+    cur = conn.cursor()
+    for ocorrencia in resultado:
+        cur.execute("INSERT INTO raw_ocorrencias (id,payload) VALUES (%s,%s) ON CONFLICT DO NOTHING",(ocorrencia["id"], json.dumps(ocorrencia)))
+    conn.commit() # fora do loop para garantir consistência, se não rodar todos os insert, não commita
 
 
 if __name__ == "__main__":
     token = auth(FOGO_EMAIL, FOGO_SENHA)
-    # print(get_data(token))
-    print (len(get_data(token))) # -> Para validação apenas, sem despejar milhares de json no terminal
-
-
-# conn = psycopg2.connect("db_name=elommaio user=elommaio")
+    dados = get_data(token)
+    insert_data(dados)
