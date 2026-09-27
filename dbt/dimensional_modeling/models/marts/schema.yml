@@ -1,0 +1,45 @@
+version: 2
+
+models:
+  - name: dim_locations
+    columns:
+      - name: location_key
+        tests:
+          - unique
+          - not_null
+  - name: dim_date
+    columns:
+      - name: date_key
+        tests:
+          - unique
+          - not_null
+  - name: dim_age_group
+    columns:
+      - name: age_group_key
+        tests:
+          - unique
+          - not_null
+  - name: dim_genre
+    columns:
+      - name: genre_key
+        tests:
+          - unique
+          - not_null
+  - name: dim_reason
+    columns:
+      - name: reason_key
+        tests:
+          - unique
+          - not_null
+  - name: dim_situation
+    columns:
+      - name: situation_key
+        tests:
+          - unique
+          - not_null
+  - name: dim_person_type
+    columns:
+      - name: person_type_key
+        tests:
+          - unique
+          - not_null
