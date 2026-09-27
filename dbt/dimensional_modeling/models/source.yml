@@ -1,8 +1,16 @@
 version: 2
 
 sources:
-  - name: fogo_cruzado
-    schema: public
+  - name: core
+    schema: core
     tables:
-      - name: raw_ocorrencias
-      - name: raw_estados
+      - name: occurrence
+      - name: victim
+      - name: neighborhood
+      - name: city
+      - name: reason
+      - name: genre
+      - name: situation
+      - name: person_type
+      - name: age_group
+      - name: state
