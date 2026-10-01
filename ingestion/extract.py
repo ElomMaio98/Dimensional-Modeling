@@ -31,35 +31,51 @@ def get_states(token):
   r.raise_for_status()
   return [(estado["id"], estado["name"]) for estado in r.json()["data"]]
 
-def get_data(token):
-    resultado = list()
-    estados = get_states(token)
+def get_data(token, conn, cur, estados):
+    # resultado = list()
+    # estados = get_states(token)
     for estado in estados:
         pagina = 1
-        while pagina<10:
+        while pagina<200:
             r1 = requests.get(url_ocorrencias, headers={"Authorization": f"Bearer {token}"}, params = {'idState':estado[0], 'page':pagina})
-            print(r1.status_code)
-            resultado.extend(r1.json()['data'])
-            pagina += 1
-            if r1.json()['pageMeta']['hasNextPage'] == False:
-                break
+            if r1.status_code == 200:
+                resposta = r1.json()
+                insert_data(conn, cur, resposta['data'])
+                # resultado.extend(resposta['data'])
+                pagina += 1
+                if resposta['pageMeta']['hasNextPage'] == False:
+                    break
+                else:
+                    time.sleep(1)
             else:
-                time.sleep(0.5)
-    return resultado
+                print(r1.status_code)
+                break
+    # return resultado
 
-def insert_data(resultado):
+def conecta_banco():
     conn = psycopg2.connect(f"dbname={db_name} user={db_user} host={db_host} port={port} password={db_password}")
     cur = conn.cursor()
-    estados = get_states(token)
+    return conn, cur
+
+
+def salva_estados(conn, cur, estados):
     for estado in estados:
-        cur.execute("INSERT INTO raw_estados (id,nome) VALUES (%s,%s) ON CONFLICT (id) DO UPDATE SET nome = EXCLUDED.nome",estado)
-    conn.commit()    
-    for ocorrencia in resultado:
-        cur.execute("INSERT INTO raw_ocorrencias (id,payload) VALUES (%s,%s) ON CONFLICT DO NOTHING",(ocorrencia["id"], json.dumps(ocorrencia)))
-    conn.commit() # fora do loop para garantir consistência, se não rodar todos os insert, não commita
+        cur.execute("INSERT INTO raw_estados (id,nome) VALUES (%s,%s) ON CONFLICT (id) DO UPDATE SET nome = EXCLUDED.nome", estado)
+    conn.commit()
+
+
+def insert_data(conn, cur, ocorrencias):
+    for ocorrencia in ocorrencias:
+        cur.execute("INSERT INTO raw_ocorrencias (id,payload) VALUES (%s,%s) ON CONFLICT DO NOTHING",
+                    (ocorrencia["id"], json.dumps(ocorrencia)))
+    conn.commit()
+
 
 
 if __name__ == "__main__":
+    conn, cur = conecta_banco()
     token = auth(FOGO_EMAIL, FOGO_SENHA)
-    dados = get_data(token)
-    insert_data(dados)
+    estados = get_states(token)
+    salva_estados(conn, cur, estados)
+    get_data(token, conn, cur, estados)
+    conn.close()
