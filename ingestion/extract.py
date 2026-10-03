@@ -46,9 +46,9 @@ def get_data(token, conn, cur, estados):
                 if resposta['pageMeta']['hasNextPage'] == False:
                     break
                 else:
-                    time.sleep(1)
+                    time.sleep(5)
             else:
-                print(r1.status_code)
+                print(r1.status_code, r1.headers.get('Retry-After'))
                 break
     # return resultado
 
