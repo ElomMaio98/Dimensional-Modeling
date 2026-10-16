@@ -43,3 +43,27 @@ models:
         tests:
           - unique
           - not_null
+  - name: fct_victims
+    columns:
+      - name: location_key
+        tests:
+          - relationships:
+              to: ref('dim_locations')
+              field: location_key
+  - name: fct_occurrences
+    columns:
+      - name: location_key
+        tests:
+          - relationships:
+              to: ref('dim_locations')
+              field: location_key
+      - name: location_key
+        tests:
+          - relationships:
+              to: ref('dim_situation')
+              field: situation_key
+      - name: reason_key
+        tests:
+          - relationships:
+              to: ref('dim_reason')
+              field: reason_key

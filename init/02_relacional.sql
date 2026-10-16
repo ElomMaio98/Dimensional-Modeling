@@ -1,55 +1,55 @@
-CREATE SCHEMA core;
+CREATE SCHEMA IF NOT EXISTS core;
 
-CREATE TABLE core.state (
+CREATE TABLE IF NOT EXISTS core.state (
     id    UUID PRIMARY KEY,
     name  TEXT NOT NULL UNIQUE
 );
 
-CREATE TABLE core.city (
+CREATE TABLE IF NOT EXISTS core.city (
     id        UUID PRIMARY KEY,
     name      TEXT NOT NULL,
     state_id  UUID NOT NULL REFERENCES core.state(id),
     UNIQUE (name, state_id)
 );
 
-CREATE TABLE core.neighborhood (
+CREATE TABLE IF NOT EXISTS core.neighborhood (
     id       UUID PRIMARY KEY,
     name     TEXT NOT NULL,
     city_id  UUID NOT NULL REFERENCES core.city(id),
     UNIQUE (name, city_id)
 );
 
-CREATE TABLE core.reason (
+CREATE TABLE IF NOT EXISTS core.reason (
     id    UUID PRIMARY KEY,
     name  TEXT NOT NULL
 );
 
-CREATE TABLE core.clipping (
+CREATE TABLE IF NOT EXISTS core.clipping (
     id    UUID PRIMARY KEY,
     name  TEXT NOT NULL
 );
 
-CREATE TABLE core.genre (
+CREATE TABLE IF NOT EXISTS core.genre (
     id    UUID PRIMARY KEY,
     name  TEXT NOT NULL
 );
 
-CREATE TABLE core.age_group (
+CREATE TABLE IF NOT EXISTS core.age_group (
     id    UUID PRIMARY KEY,
     name  TEXT NOT NULL
 );
 
-CREATE TABLE core.situation (
+CREATE TABLE IF NOT EXISTS core.situation (
     id    SERIAL PRIMARY KEY,
     name  TEXT NOT NULL UNIQUE
 );
 
-CREATE TABLE core.person_type (
+CREATE TABLE IF NOT EXISTS core.person_type (
     id    SERIAL PRIMARY KEY,
     name  TEXT NOT NULL UNIQUE
 );
 
-CREATE TABLE core.occurrence (
+CREATE TABLE IF NOT EXISTS core.occurrence (
     id               UUID PRIMARY KEY,
     document_number  INTEGER,
     occurred_at      TIMESTAMPTZ NOT NULL,
@@ -63,7 +63,7 @@ CREATE TABLE core.occurrence (
     main_reason_id   UUID REFERENCES core.reason(id)
 );
 
-CREATE TABLE core.victim (
+CREATE TABLE IF NOT EXISTS core.victim (
     id              UUID PRIMARY KEY,
     occurrence_id   UUID NOT NULL REFERENCES core.occurrence(id),
     age             INTEGER,
@@ -74,15 +74,15 @@ CREATE TABLE core.victim (
     person_type_id  INTEGER REFERENCES core.person_type(id)
 );
 
-CREATE TABLE core.occurrence_clipping (
+CREATE TABLE IF NOT EXISTS core.occurrence_clipping (
     occurrence_id  UUID REFERENCES core.occurrence(id),
     clipping_id    UUID REFERENCES core.clipping(id),
     PRIMARY KEY (occurrence_id, clipping_id)
 );
 
-CREATE INDEX ON core.city (state_id);
-CREATE INDEX ON core.neighborhood (city_id);
-CREATE INDEX ON core.occurrence (neighborhood_id);
-CREATE INDEX ON core.occurrence (main_reason_id);
-CREATE INDEX ON core.occurrence (occurred_at);
-CREATE INDEX ON core.victim (occurrence_id);
+CREATE INDEX IF NOT EXISTS idx_city_state_id ON core.city (state_id);
+CREATE INDEX IF NOT EXISTS idx_neighborhood_city_id ON core.neighborhood (city_id);
+CREATE INDEX IF NOT EXISTS idx_occurrence_neighborhood_id ON core.occurrence (neighborhood_id);
+CREATE INDEX IF NOT EXISTS idx_occurrence_main_reason_id ON core.occurrence (main_reason_id);
+CREATE INDEX IF NOT EXISTS idx_occurrence_occurred_at ON core.occurrence (occurred_at);
+CREATE INDEX IF NOT EXISTS idx_victim_occurrence_id ON core.victim (occurrence_id);

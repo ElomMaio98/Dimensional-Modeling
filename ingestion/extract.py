@@ -36,21 +36,33 @@ def get_data(token, conn, cur, estados):
     # estados = get_states(token)
     for estado in estados:
         pagina = 1
+
         while pagina<200:
-            r1 = requests.get(url_ocorrencias, headers={"Authorization": f"Bearer {token}"}, params = {'idState':estado[0], 'page':pagina})
-            if r1.status_code == 200:
-                resposta = r1.json()
-                insert_data(conn, cur, resposta['data'])
-                # resultado.extend(resposta['data'])
-                pagina += 1
-                if resposta['pageMeta']['hasNextPage'] == False:
+            tentativas = 0
+
+            while tentativas <5:
+                r1 = requests.get(url_ocorrencias, headers={"Authorization": f"Bearer {token}"}, params = {'idState':estado[0], 'page':pagina})
+                if r1.status_code == 200:
                     break
                 else:
-                    time.sleep(5)
-            else:
-                print(r1.status_code, r1.headers.get('Retry-After'))
+                    espera = int(r1.headers.get('Retry-After',60))
+                    print(f'Erro {r1.status_code} - esperando {espera}s')
+                    time.sleep(espera)
+                    tentativas += 1
+                
+            if r1.status_code != 200:
+                print(f'Desistindo da página {pagina}')
                 break
-    # return resultado
+
+            
+            resposta = r1.json()
+            insert_data(conn, cur, resposta['data'])
+            print("Tá dando tudo certo")
+            pagina += 1
+            if not resposta['pageMeta']['hasNextPage']:
+                break                              # última página do estado
+            time.sleep(5)
+        
 
 def conecta_banco():
     conn = psycopg2.connect(f"dbname={db_name} user={db_user} host={db_host} port={port} password={db_password}")
